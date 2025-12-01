@@ -33,7 +33,9 @@ export default function AddLesson() {
       <input placeholder="Title" value={title} onChange={e=>setTitle(e.target.value)} /><br/><br/>
       <textarea placeholder="Description" value={desc} onChange={e=>setDesc(e.target.value)} /><br/><br/>
       <input placeholder="Video URL" value={video} onChange={e=>setVideo(e.target.value)} /><br/><br/>
+  <h1>
       <button onClick={handleAdd}>Add Lesson</button>
+  </h1>
     </div>
   );
 }
