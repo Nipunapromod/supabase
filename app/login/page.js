@@ -42,6 +42,7 @@ export default function LoginPage() {
         </button>
 
         <p style={{ color: "red" }}>{msg}</p>
+        <p>Don't have an account? <a href="/register">Register</a></p>
       </div>
 
       {/* FULL CSS HERE */}
@@ -95,12 +96,12 @@ h6 {
 
 /* Card effect for sections/divs */
 .card {
-  background: rgba(30, 30, 40, 0.95);
+  background: rgba(0, 0, 0, 0);
   border-radius: 16px;
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  box-shadow: 0 8px 32px 0 rgba(0, 255, 13, 0);
   padding: 2em;
   margin: 1em 0;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(0, 255, 64, 1);
   backdrop-filter: blur(4px);
 }
 
@@ -127,7 +128,7 @@ a:focus {
 .button-link {
   padding: 14px 36px;
   font-size: 1.15rem;
-  background: linear-gradient(90deg, #007bff 0%, #00ff88 100%);
+  background: linear-gradient(90deg, #000000ff 0%, #000000ff 100%);
   color: #fff;
   border-radius: 8px;
   border: 2px solid #00ff88;
@@ -139,10 +140,10 @@ a:focus {
 }
 
 .button-link:hover {
-  background: linear-gradient(90deg, #00ff88 0%, #007bff 100%);
+  background: linear-gradient(90deg, #000000ff 0%, #000000ff 100%);
   transform: scale(1.08);
   border-color: #fff;
-  box-shadow: 0 6px 24px #007bff55;
+  box-shadow: 0 6px 24px #00e1ffff;
   outline: none;
 }
 
