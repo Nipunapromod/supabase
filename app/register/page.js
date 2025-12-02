@@ -22,34 +22,32 @@ export default function RegisterPage() {
   };
 
   return (
-    <div style={{ padding: 40 }}>
-      <h1>Create Account</h1>
+    <>
+      <div className="card border">
+        <h1>Create Account</h1>
 
-      <input
-        placeholder="Email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-        style={{ padding: 10, width: 250 }}
-      />
+        <input
+          placeholder="Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
 
-      <br />
-      <br />
+        <button onClick={handleRegister} className="btn-main">
+          Register
+        </button>
 
-      <button onClick={handleRegister} style={{ padding: 10 }}>
-        Register
-      </button>
+        <p>{msg}</p>
 
-      <p>{msg}</p>
+        <p>
+          Already have an account? <a href="/login">Login</a>
+        </p>
+      </div>
 
-      {/* Combined link here */}
-      <p>
-        Already have an account? <a href="/login">Login</a>
-      </p>
-
+      {/* GLOBAL CSS FIXED */}
       <style jsx global>{`
         html {
           box-sizing: border-box;
-          font-family: 'Segoe UI', 'Arial', sans-serif;
+          font-family: "Segoe UI", "Arial", sans-serif;
           scroll-behavior: smooth;
         }
 
@@ -66,71 +64,93 @@ export default function RegisterPage() {
           background: radial-gradient(circle at 0% 0%, #ff0000 0%, transparent 18%),
             radial-gradient(circle at 100% 0%, #00ff6a 0%, transparent 18%),
             radial-gradient(circle at 0% 100%, #00ff6a 0%, transparent 18%),
-            radial-gradient(circle at 100% 100%, #ff000080 0%, transparent 18%), #000;
+            radial-gradient(circle at 100% 100%, #ff000080 0%, transparent 18%),
+            #000;
           color: #f5f5f5;
-          line-height: 1.6;
-          font-size: 1.1rem;
           display: flex;
-          flex-direction: column;
           align-items: center;
           justify-content: center;
+          padding: 40px;
+        }
+
+        /* Border + Card Effect */
+        .border {
+          border: 2px solid #00ff88;
+          padding: 40px;
+          border-top-right-radius: 40px;
+          border-bottom-left-radius: 40px;
+        }
+
+        .card {
+          background: rgba(0, 0, 0, 0.6);
+          border-radius: 16px;
+          backdrop-filter: blur(4px);
+          box-shadow: 0 8px 32px rgba(0, 255, 64, 0.2);
         }
 
         h1 {
           color: #00ff88;
-          letter-spacing: 1px;
-          margin-bottom: 0.5em;
-          text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+          margin-bottom: 20px;
         }
 
+        /* ⭐ Inputs */
+        input {
+          width: 250px;
+          padding: 10px;
+          background: #000;
+          color: #fff;
+          border: 1px solid #00ff88;
+          border-radius: 6px;
+          margin-bottom: 15px;
+        }
+
+        input:focus {
+          border-color: #fff;
+          box-shadow: 0 0 8px #00ff88;
+          outline: none;
+        }
+
+        /* ⭐ Button */
+        .btn-main {
+          padding: 12px 20px;
+          width: 250px;
+          background: #000;
+          color: white;
+          border: 2px solid #00ff88;
+          border-radius: 8px;
+          font-size: 1rem;
+          cursor: pointer;
+          transition: 0.3s;
+          margin-top: 10px;
+        }
+
+        /* Button Hover Animation */
+        .btn-main:hover {
+          transform: scale(1.08);
+          border-color: #fff;
+          box-shadow: 0 6px 20px #00ff8844;
+        }
+
+        /* Link Animation */
         a {
           color: #00ff88;
           text-decoration: none;
-          transition: color 0.3s, transform 0.3s, box-shadow 0.3s;
-          display: inline-block;
           position: relative;
-          padding: 2px 4px;
-          border-radius: 4px;
-        }
-
-        a:hover {
-          color: #fff;
-          transform: scale(1.12);
-          box-shadow: 0 2px 12px #00ff8855;
         }
 
         a::after {
-          content: '';
-          display: block;
-          width: 0;
+          content: "";
           height: 2px;
+          width: 0%;
           background: #00ff88;
-          transition: width 0.3s;
+          display: block;
+          transition: 0.3s;
         }
 
         a:hover::after {
           width: 100%;
         }
-
-        input,
-        button {
-          font-family: inherit;
-          font-size: 1em;
-          border-radius: 4px;
-          border: 1px solid #00ff88;
-          padding: 0.5em 1em;
-          margin: 0.5em 0;
-          background: #000;
-          color: #fff;
-        }
-
-        input:focus,
-        button:focus {
-          border-color: #fff;
-          box-shadow: 0 0 8px #00ff88;
-          outline: none;
-        }
       `}</style>
-    </div>
+    </>
   );
 }
