@@ -133,6 +133,25 @@ export default function RegisterPage() {
         }
 
         /* Link Animation */
+        a {
+          color: #00ff88;
+          text-decoration: none;
+          transition: color 0.3s, transform 0.3s, box-shadow 0.3s;
+          display: inline-block;
+          position: relative;
+          padding: 2px 4px;
+          border-radius: 4px;
+        }
+
+        a:hover,
+        a:focus {
+          color: #fff;
+          transform: scale(1.12);
+          box-shadow: 0 2px 12px #00ff8855;
+          outline: none;
+        }
+
+        /* Extra underline effect */
         a::after {
           content: '';
           display: block;
