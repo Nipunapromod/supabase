@@ -31,7 +31,6 @@ export default function RegisterPage() {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
-        <br /> {/* fixed break line */}
 
         <button onClick={handleRegister} className="btn-main">
           Register
@@ -44,7 +43,6 @@ export default function RegisterPage() {
         </p>
       </div>
 
-      {/* GLOBAL CSS FIXED */}
       <style jsx global>{`
         html {
           box-sizing: border-box;
@@ -87,22 +85,28 @@ export default function RegisterPage() {
           border-radius: 16px;
           backdrop-filter: blur(4px);
           box-shadow: 0 8px 32px rgba(0, 255, 64, 0.2);
+          padding: 40px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 20px;
+          max-width: 320px;
+          width: 100%;
         }
 
         h1 {
           color: #00ff88;
-          margin-bottom: 20px;
+          margin-bottom: 10px;
         }
 
-        /* ⭐ Inputs */
+        /* Inputs */
         input {
-          width: 250px;
+          width: 100%;
           padding: 10px;
           background: #000;
           color: #fff;
           border: 1px solid #00ff88;
           border-radius: 6px;
-          margin-bottom: 15px;
         }
 
         input:focus {
@@ -111,10 +115,10 @@ export default function RegisterPage() {
           outline: none;
         }
 
-        /* ⭐ Button */
+        /* Button */
         .btn-main {
           padding: 12px 20px;
-          width: 250px;
+          width: 100%;
           background: #000;
           color: white;
           border: 2px solid #00ff88;
@@ -122,10 +126,8 @@ export default function RegisterPage() {
           font-size: 1rem;
           cursor: pointer;
           transition: 0.3s;
-          margin-top: 10px;
         }
 
-        /* Button Hover Animation */
         .btn-main:hover {
           transform: scale(1.08);
           border-color: #fff;
@@ -151,7 +153,6 @@ export default function RegisterPage() {
           outline: none;
         }
 
-        /* Extra underline effect */
         a::after {
           content: '';
           display: block;
@@ -167,8 +168,12 @@ export default function RegisterPage() {
         a:focus::after {
           width: 100%;
         }
+
+        p {
+          text-align: center;
+          word-break: break-word;
+        }
       `}</style>
     </>
   );
 }
-
