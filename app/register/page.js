@@ -23,130 +23,131 @@ export default function RegisterPage() {
 
   return (
     <>
-      {/* add clear, specific classes so original css still exists untouched */}
-      <div className="np-register-wrapper">
-        <div className="np-card np-border">
-          <h1 className="np-title">Create Account</h1>
+      <div className="card border">
+        <h1>Create Account</h1>
 
-          <input
-            className="np-input"
-            placeholder="Email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            aria-label="email"
-          />
+        <input
+          placeholder="Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
 
-          <button onClick={handleRegister} className="np-btn-main" type="button">
-            Register
-          </button>
+        <button onClick={handleRegister} className="btn-main">
+          Register
+        </button>
 
-          <p className="np-msg">{msg}</p>
+        <p>{msg}</p>
 
-          <p className="np-foot">
-            Already have an account? <a href="/login">Login</a>
-          </p>
-        </div>
+        <p>
+          Already have an account? <a href="/login">Login</a>
+        </p>
       </div>
 
-      {/* Minimal scoped fixes only — does NOT change your original global css */}
-      <style jsx>{`
-        /* center the wrapper without touching global body */
-        .np-register-wrapper {
+      {/* GLOBAL CSS FIXED */}
+      <style jsx global>{`
+        html {
+          box-sizing: border-box;
+          font-family: "Segoe UI", "Arial", sans-serif;
+          scroll-behavior: smooth;
+        }
+
+        *,
+        *::before,
+        *::after {
+          box-sizing: inherit;
+          margin: 0;
+          padding: 0;
+        }
+
+        body {
+          min-height: 100vh;
+          background: radial-gradient(circle at 0% 0%, #ff0000 0%, transparent 18%),
+            radial-gradient(circle at 100% 0%, #00ff6a 0%, transparent 18%),
+            radial-gradient(circle at 0% 100%, #00ff6a 0%, transparent 18%),
+            radial-gradient(circle at 100% 100%, #ff000080 0%, transparent 18%),
+            #000;
+          color: #f5f5f5;
           display: flex;
           align-items: center;
           justify-content: center;
           padding: 40px;
         }
 
-        /* ensure your border is visible — higher specificity */
-        .np-border {
-          border: 2px solid #00ff88 !important;
-          padding: 32px !important;
-          border-top-right-radius: 40px !important;
-          border-bottom-left-radius: 40px !important;
-          background: rgba(0, 0, 0, 0.45); /* subtle glass so border pops */
+        /* Border + Card Effect */
+        .border {
+          border: 2px solid #00ff88;
+          padding: 40px;
+          border-top-right-radius: 40px;
+          border-bottom-left-radius: 40px;
         }
 
-        /* card shadow + layout */
-        .np-card {
-          display: flex;
-          flex-direction: column;
-          gap: 12px;
-          align-items: center;
-          min-width: 320px;
-          max-width: 420px;
+        .card {
+          background: rgba(0, 0, 0, 0.6);
+          border-radius: 16px;
+          backdrop-filter: blur(4px);
+          box-shadow: 0 8px 32px rgba(0, 255, 64, 0.2);
         }
 
-        .np-title {
-          margin: 0;
+        h1 {
           color: #00ff88;
-          letter-spacing: 1px;
+          margin-bottom: 20px;
         }
 
-        /* make input match and ensure border visible */
-        .np-input {
-          width: 100%;
-          max-width: 320px;
+        /* ⭐ Inputs */
+        input {
+          width: 250px;
           padding: 10px;
-          background: transparent;
+          background: #000;
           color: #fff;
           border: 1px solid #00ff88;
           border-radius: 6px;
+          margin-bottom: 15px;
+        }
+
+        input:focus {
+          border-color: #fff;
+          box-shadow: 0 0 8px #00ff88;
           outline: none;
         }
 
-        .np-input:focus {
-          border-color: #ffffff;
-          box-shadow: 0 0 10px #00ff88aa;
-        }
-
-        /* button styling + hover animation (higher specificity than global) */
-        .np-btn-main {
-          width: 100%;
-          max-width: 320px;
-          padding: 12px 18px;
-          background: linear-gradient(90deg, rgba(0,0,0,0.6), rgba(0,0,0,0.6));
-          color: #fff;
+        /* ⭐ Button */
+        .btn-main {
+          padding: 12px 20px;
+          width: 250px;
+          background: #000;
+          color: white;
           border: 2px solid #00ff88;
           border-radius: 8px;
-          font-weight: 600;
+          font-size: 1rem;
           cursor: pointer;
-          transition: transform 200ms ease, box-shadow 200ms ease, border-color 200ms ease;
+          transition: 0.3s;
+          margin-top: 10px;
         }
 
-        /* hover must be visible — add transform and glow */
-        .np-btn-main:hover,
-        .np-btn-main:focus {
-          transform: translateY(-3px) scale(1.03);
-          border-color: #ffffff;
-          box-shadow: 0 8px 30px rgba(0, 255, 136, 0.18);
+        /* Button Hover Animation */
+        .btn-main:hover {
+          transform: scale(1.08);
+          border-color: #fff;
+          box-shadow: 0 6px 20px #00ff8844;
         }
 
-        .np-msg {
-          min-height: 1.2em;
-          font-size: 0.95rem;
-          text-align: center;
-        }
-
-        .np-foot {
-          margin-top: 6px;
-          font-size: 0.95rem;
-        }
-
-        /* make link underline animation respect your original link styles */
-        .np-foot a {
+        /* Link Animation */
+        a {
+          color: #00ff88;
+          text-decoration: none;
           position: relative;
-          color: inherit;
         }
-        .np-foot a::after {
+
+        a::after {
           content: "";
-          display: block;
           height: 2px;
-          width: 0;
+          width: 0%;
           background: #00ff88;
-          transition: width 0.28s ease;
+          display: block;
+          transition: 0.3s;
         }
-        .np-foot a:hover::after {
+
+        a:hover::after {
           width: 100%;
         }
       `}</style>
