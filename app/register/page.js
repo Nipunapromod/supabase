@@ -24,7 +24,7 @@ export default function RegisterPage() {
   return (
     <>
       <div className="card border">
-        <h1>Create Account</h1>
+        <h1>Register</h1>
 
         <input
           placeholder="Email"
@@ -171,3 +171,4 @@ export default function RegisterPage() {
     </>
   );
 }
+
