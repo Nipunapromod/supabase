@@ -30,7 +30,7 @@ export default function RegisterPage() {
           placeholder="Email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-        />
+        /><br
 
         <button onClick={handleRegister} className="btn-main">
           Register
@@ -132,25 +132,23 @@ export default function RegisterPage() {
         }
 
         /* Link Animation */
-        a {
-          color: #00ff88;
-          text-decoration: none;
-          position: relative;
-        }
+       a::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 2px;
+  background: #00ff88;
+  transition: width 0.3s;
+  border-radius: 2px;
+  margin-top: 2px;
+}
 
-        a::after {
-          content: "";
-          height: 2px;
-          width: 0%;
-          background: #00ff88;
-          display: block;
-          transition: 0.3s;
-        }
-
-        a:hover::after {
-          width: 100%;
-        }
+a:hover::after,
+a:focus::after {
+  width: 100%;
+}
       `}</style>
     </>
   );
 }
+
