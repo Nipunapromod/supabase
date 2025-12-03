@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import Head from "next/head";             // TITLE SUPPORT
 import { supabase } from "../../lib/supabaseClient";
 
 export default function RegisterPage() {
@@ -23,6 +24,11 @@ export default function RegisterPage() {
 
   return (
     <>
+      {/* PAGE TITLE */}
+      <Head>
+        <title>Register</title>
+      </Head>
+
       <div
         className="card border"
         style={{
@@ -94,8 +100,6 @@ export default function RegisterPage() {
         .border {
           border: 2px solid #00ff88;
           padding: 50px;
-
-          /* UPDATED HERE — EXACTLY WHERE YOU WANTED IT */
           border-bottom-left-radius: 60px;
           border-top-right-radius: 60px;
         }
