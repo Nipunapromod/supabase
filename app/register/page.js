@@ -23,26 +23,37 @@ export default function RegisterPage() {
 
   return (
     <>
-      <div className="card border">
+      <div
+        className="card border"
+        style={{
+          width: 350,
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          gap: "20px",
+        }}
+      >
         <h1>Register</h1>
 
         <input
           placeholder="Email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
+          style={{ width: "100%" }}
         />
 
-        <button onClick={handleRegister} className="btn-main">
+        <button onClick={handleRegister} className="button-link" style={{ width: "100%" }}>
           Register
         </button>
 
-        <p>{msg}</p>
+        <p style={{ textAlign: "center" }}>{msg}</p>
 
-        <p>
+        <p style={{ textAlign: "center" }}>
           Already have an account? <a href="/login">Login</a>
         </p>
       </div>
 
+      {/* LOGIN CSS APPLIED HERE */}
       <style jsx global>{`
         html {
           box-sizing: border-box;
@@ -66,47 +77,48 @@ export default function RegisterPage() {
             radial-gradient(circle at 100% 100%, #ff000080 0%, transparent 18%),
             #000;
           color: #f5f5f5;
+          line-height: 1.6;
+          font-size: 1.1rem;
           display: flex;
           align-items: center;
           justify-content: center;
           padding: 40px;
         }
 
-        /* Border + Card Effect */
-        .border {
-          border: 2px solid #00ff88;
-          padding: 40px;
-          border-top-right-radius: 40px;
-          border-bottom-left-radius: 40px;
-        }
-
-        .card {
-          background: rgba(0, 0, 0, 0.6);
-          border-radius: 16px;
-          backdrop-filter: blur(4px);
-          box-shadow: 0 8px 32px rgba(0, 255, 64, 0.2);
-          padding: 40px;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          gap: 20px;
-          max-width: 320px;
-          width: 100%;
-        }
-
         h1 {
           color: #00ff88;
           margin-bottom: 10px;
+          text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
         }
 
-        /* Inputs */
-        input {
-          width: 100%;
-          padding: 10px;
+        .border {
+          border: 2px solid #00ff88;
+          padding: 50px;
+          border-top-right-radius: 50px;
+          border-bottom-left-radius: 50px;
+        }
+
+        .card {
+          background: rgba(0, 0, 0, 0);
+          border-radius: 16px;
+          box-shadow: 0 8px 32px 0 rgba(0, 255, 13, 0);
+          padding: 2em;
+          margin: 1em 0;
+          border: 1px solid rgba(0, 255, 64, 1);
+          backdrop-filter: blur(4px);
+        }
+
+        input,
+        button {
+          font-family: inherit;
+          font-size: 1em;
+          border-radius: 4px;
+          border: 1px solid #00ff88;
+          padding: 0.5em 1em;
+          margin: 0.5em 0;
           background: #000;
           color: #fff;
-          border: 1px solid #00ff88;
-          border-radius: 6px;
+          transition: border-color 0.3s, box-shadow 0.3s;
         }
 
         input:focus {
@@ -115,63 +127,53 @@ export default function RegisterPage() {
           outline: none;
         }
 
-        /* Button */
-        .btn-main {
-          padding: 12px 20px;
-          width: 100%;
+        .button-link {
+          padding: 14px 36px;
+          font-size: 1.15rem;
           background: #000;
-          color: white;
-          border: 2px solid #00ff88;
+          color: #fff;
           border-radius: 8px;
-          font-size: 1rem;
+          border: 2px solid #00ff88;
           cursor: pointer;
-          transition: 0.3s;
+          font-weight: bold;
+          letter-spacing: 1px;
+          box-shadow: 0 4px 16px #00ff8844;
+          transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
         }
 
-        .btn-main:hover {
+        .button-link:hover {
           transform: scale(1.08);
           border-color: #fff;
-          box-shadow: 0 6px 20px #00ff8844;
+          box-shadow: 0 6px 24px #00e1ffff;
         }
 
-        /* Link Animation */
         a {
           color: #00ff88;
           text-decoration: none;
           transition: color 0.3s, transform 0.3s, box-shadow 0.3s;
           display: inline-block;
-          position: relative;
           padding: 2px 4px;
           border-radius: 4px;
         }
 
-        a:hover,
-        a:focus {
+        a:hover {
           color: #fff;
           transform: scale(1.12);
           box-shadow: 0 2px 12px #00ff8855;
-          outline: none;
         }
 
         a::after {
-          content: '';
+          content: "";
           display: block;
           width: 0;
           height: 2px;
           background: #00ff88;
           transition: width 0.3s;
-          border-radius: 2px;
           margin-top: 2px;
         }
 
-        a:hover::after,
-        a:focus::after {
+        a:hover::after {
           width: 100%;
-        }
-
-        p {
-          text-align: center;
-          word-break: break-word;
         }
       `}</style>
     </>
