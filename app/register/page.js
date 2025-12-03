@@ -1,6 +1,3 @@
-export const metadata = {
-  title: "Register",
-};
 "use client";
 import { useState } from "react";
 import Head from "next/head";             // TITLE SUPPORT
@@ -184,4 +181,5 @@ export default function RegisterPage() {
     </>
   );
 }
+
 
