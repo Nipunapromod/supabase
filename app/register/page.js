@@ -94,6 +94,8 @@ export default function RegisterPage() {
         .border {
           border: 2px solid #00ff88;
           padding: 50px;
+
+          /* UPDATED HERE — EXACTLY WHERE YOU WANTED IT */
           border-bottom-left-radius: 60px;
           border-top-right-radius: 60px;
         }
@@ -179,4 +181,3 @@ export default function RegisterPage() {
     </>
   );
 }
-
